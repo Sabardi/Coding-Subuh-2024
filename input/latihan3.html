@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 3</title>
+</head>
+<body>
+    <!-- inputan -->
+    <input type="text" name="" id="inputNama">
+    <input type="email" name="" id="inputEmail">
+    
+    <!-- output -->
+    <p>Nama: <b id="outputNama"></b> </p>
+    <p>Email: <b id="outputEmail"></b> </p>
+
+    <script>
+        inputNama.addEventListener("change", function(){
+            outputNama.textContent = inputNama.value;
+        })
+
+        inputEmail.addEventListener("change", function(){
+            outputEmail.textContent = inputEmail.value;
+        })
+    </script>
+</body>
+</html>
