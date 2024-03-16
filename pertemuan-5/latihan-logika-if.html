@@ -14,19 +14,15 @@
         const passwordBener = password === "1234";
         const loginSucces = usernameBener && passwordBener
         
-      const dashboardTemplet = `
-      <h1>Hello ${username} </h1>
-      <p>Selamat datang</p>
-      `;
-        
-      const loginFiledTemplet = `
-      <p>login gagal, silahkan coba lagi</p>
-      <button onclick="location.reload()">login</button>
-      `;
-        
-      const app = document.getElementById("app");
-      app.innerHTML = loginSucces ? dashboardTemplet: loginFiledTemplet;
-        
+        // jika menggunakan if 
+        if(loginSucces == usernameBener && passwordBener){
+            window.location = "perbandingan.html";
+        }else{
+            document.write( `
+        <p>login gagal, silahkan coba lagi</p>
+        <button onclick="location.reload()">login</button>
+        `)
+        }
     </script>
 </body>
 </html>
