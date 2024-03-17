@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="" id="nilaiA">
+        <input type="text" name="" id="nilaiB">
+        <button onclick="lakukanOPerasiBitwise()" >Operasi Bitwise</button>
+    </div>
+    <script>
+        function lakukanOPerasiBitwise() {
+            //ambilnilai dari input
+            let nilaiA = document.getElementById("nilaiA").value
+            let nilaiB = document.getElementById("nilaiB").value
+            
+            // hasil bitwise
+            let hasilAnd = nilaiA & nilaiB;
+            let hasilBitOr = nilaiA | nilaiB;
+            let hasilXOR = nilaiA ^ nilaiB;
+            let hasilNotA = ~nilaiA;
+
+            // konfersi nilai
+            let binerNilaiA = nilaiA.toString(2)
+            let binerNilaiB = nilaiA.toString(2)
+            let binerNilaiBitAnd = hasilAnd.toString(2)
+            let binerNilaiBitOr = hasilBitOr.toString(2)
+            let binerNilaiBitXor = hasilXOR.toString(2)
+            let binerNilaiNotA = hasilNotA.toString(2)
+
+            let templetOutput =
+                <h1>Hasil</h1>
+            ` <h2>${nilaiA} & ${nilaiB} = ${hasilAnd}</h2>
+            <pre>${binerNilaiA} & ${binerNilaiB} = ${binerNilaiBitAnd}</pre>
+
+        <hr>
+
+        <h2>${nilaiA} | ${nilaiB} = ${hasilBitOr}</h2>
+        <pre>${binerNilaiA} | ${binerNilaiB} = ${binerNilaiBitOr}</pre>
+
+        <hr>
+
+        <h2>${nilaiA} ^ ${nilaiB} = ${hasilXOR}</h2>
+        <pre>${binerNilaiA} | ${binerNilaiB} = ${binerNilaiBitXor}</pre>
+
+        <hr>
+
+        <h2>~${nilaiA} = ${hasilNotA}</h2>
+        <pre>${binerNilaiA} = ${binerNilaiNotA}</pre>
+      `;
+
+      document.write(templetOutput)
+        }
+    
+    </script>
+</body>
+</html>
