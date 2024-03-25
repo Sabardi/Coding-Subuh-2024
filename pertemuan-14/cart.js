@@ -4,13 +4,16 @@ class Cart {
     }
 
     addItem(product){
-        if (product instanceof product) {
+        if(product instanceof product) {
             this.items.push(product);
         }else{
             console.error("tidak bisa menambahkan objek selain product ke keranjang")
         }
     }
 
+    removeItem(index){
+        this.items.splice(index,1);
+    }
     clear(){
         this.items = [];
     }

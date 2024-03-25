@@ -8,6 +8,7 @@ const goPay = new Wallet(10000);
 const iPhone = new Product(
     "iPhonr 15 pro max",
     33000000,
+    "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg",
 )
 
 const samsung = new Product(
