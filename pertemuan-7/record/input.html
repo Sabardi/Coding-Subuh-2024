@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Wallet</title>
+</head>
+<body>
+    <h1>JS Pay</h1>
+    <p>Javascript wallet App</p>
+
+    <!-- elemen input data -->
+    <input type="number" name="" id="inputPin" placeholder="Masukan Pin Anda">
+    <button onclick="checkPin()">Buka Wallet</button>
+    <!-- pesan jika gagal -->
+    <p id="Message"></p>
+    
+    <script>
+        const validPin = 1234;
+        
+        function checkPin(){
+            const userInputPin = Number(document.getElementById('inputPin').value);
+
+            if(userInputPin === validPin){
+                console.log("berhasil")
+                window.location = "index.html";
+            }else{
+                const invalidMessage = "pin yang anda masukan salah,";
+                document.getElementById('Message').textContent = invalidMessage;
+            }
+        }
+    </script>
+</body>
+</html>
