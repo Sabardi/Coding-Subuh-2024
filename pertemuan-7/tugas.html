@@ -12,21 +12,22 @@
     <fieldset id="metodeBayar">
         <legend>*Pilih metode pembayaran*</legend>
         
-        <input type="radio" name="metodePembayaran" id="transferBank">
+        <input type="radio" name="metodePembayaran" id="transferBank" onclick="chekradio()">
         <label for="">Transfer Bank</label>
 
-        <input type="radio" name="metodePembayaran" id="eWalet">
+        <input type="radio" name="metodePembayaran" id="eWalet" onclick="chekradio()">
         <label for="">E-wallet</label>
         <br>
 
-        <input type="radio" name="metodePembayaran" id="cashback">
+        <input type="radio" name="metodePembayaran" id="cashback" onclick="chekradio()">
         <label for="">Paylater (Cashback: 10)</label>
         
         <br>
-        <input type="radio" name="metodePembayaran" id="outlate">
+        <input type="radio" name="metodePembayaran" id="outlate" onclick="chekradio()">
         <label for="">Outlate (alfamart, Indomaret)</label>
     </fieldset>
 
+    <p id="cupon-mesege" style="color: green;"></p>
     <p style="text-decoration: underline; color: brown;" onclick="kode()" >Punya Kupon</p>
     <p id="kode"></p>
     <button onclick="prosesTransaksi()">Proses Transaksi</button>
@@ -34,6 +35,21 @@
     <p id="hasil"></p>
 
     <script>
+        var cashback = 0;
+        function chekradio(){
+            if(document.getElementById('transferBank').Checked){
+                console.log("transfer Bank")
+            }else if(document.getElementById('eWalet').Checked){
+                console.log("eWalet")
+            }else if(document.getElementById('cashback').Checked){
+                console.log("cashback")
+            }else if(document.getElementById('outlate').Checked){
+                console.log("outlate")
+            }
+        }
+
+        // jik ada kupon
+        let diskon = 0;
         function kode(){
             let inputKode = prompt("masukan kode vicher nya")
             // inputKode = prompt("masukan kode vocher nya");
@@ -43,8 +59,6 @@
             let JumlahTransaksi = Number(document.getElementById("totalBelanja").value);
             let metodePembayaran = document.querySelector('input[name="metodePembayaran"]:checked').id;
             // let metodePembayaran = document.getElementById('metodeBayar[name="metodePembayaran').id
-            let cashback = 0;
-            let diskon = 0;
             let kode = "hallo"
 
             if (metodePembayaran === "transferBank") {
