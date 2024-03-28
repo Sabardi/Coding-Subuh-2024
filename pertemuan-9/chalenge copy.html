@@ -21,10 +21,16 @@
 <body>
     <!-- element buat nampilkan kursi  -->
     <div id="outputSeat" class="seat"></div>
+    <h1>Kursi yang di pilih : <span id="outputSelectedSeat"></span></h1>
 
     <script>
         const outputSeat = document.getElementById("outputSeat");
+        const outputSelectedSeat = document.getElementById("outputSelectedSeat")
         const columsNameChar = "_ABCDEFG";
+
+        // data yg menampung jika btn kursi di klik
+        var selectedSeat = [];
+        
 
         // pengulangan baris 
         for(let kolom = 7; kolom >= 1; kolom--){
@@ -38,11 +44,24 @@
                 }else{
                     // tampilkan kursi
                     const columName = columsNameChar.charAt(kolom);
-                    outputSeat.innerHTML += `<button>${columName} ${baris} </button>`
+                    outputSeat.innerHTML += `<button onclick="onSelectedSeat(event)" >${columName} ${baris} </button>`
                 }
 
             }
             outputSeat.innerHTML += "<br>";
+        }
+
+        function onSelectedSeat($event){
+            //variable nyimpan kursi
+            let seatName = event.target.textContent;
+            if(selectedSeat.includes(seatName)){
+
+            }else{
+                // let seatSelected = event.target.textContent;
+                // jika di klik akan menyimpan data nya
+                selectedSeat.push(seatName);
+            }
+            outputSelectedSeat.textContent = selectedSeat;
         }
     </script>
 </body>
