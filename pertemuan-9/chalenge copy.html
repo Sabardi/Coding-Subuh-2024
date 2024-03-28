@@ -15,6 +15,9 @@
     .invisible {
         visibility: hidden;
       }
+      .selected{
+        background-color: #ff8822 ;
+    }
 
     </style>
 </head>
@@ -54,6 +57,8 @@
         function onSelectedSeat($event){
             //variable nyimpan kursi
             let seatName = event.target.textContent;
+            // mewakili tombol yang sedang di klik
+            event.target.classList.toggle("selected");
             if(selectedSeat.includes(seatName)){
                 // melakuan filter jika dia batal
                 selectedSeat = selectedSeat.filter((seat)=>seat !== seatName);
