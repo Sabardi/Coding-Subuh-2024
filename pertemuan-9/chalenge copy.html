@@ -25,10 +25,12 @@
     <!-- element buat nampilkan kursi  -->
     <div id="outputSeat" class="seat"></div>
     <h1>Kursi yang di pilih : <span id="outputSelectedSeat"></span></h1>
+    <h1>Total Harga : <span id="outputPrice"></span></h1>
 
     <script>
         const outputSeat = document.getElementById("outputSeat");
         const outputSelectedSeat = document.getElementById("outputSelectedSeat")
+        const outputPrice = document.getElementById("outputPrice")
         const columsNameChar = "_ABCDEFG";
 
         // data yg menampung jika btn kursi di klik
@@ -68,6 +70,12 @@
                 selectedSeat.push(seatName);
             }
             outputSelectedSeat.textContent = selectedSeat;
+            hitungHarga();  
+        }
+
+        function hitungHarga(){
+            let tiket = 50000; 
+            outputPrice.textContent = selectedSeat.length * tiket; 
         }
     </script>
 </body>
