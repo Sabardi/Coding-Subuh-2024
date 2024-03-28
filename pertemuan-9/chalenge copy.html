@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dian nested loop</title>
     <style>
-        .seat button{
+        #outputSeat button{
              width: 3em;
              height: 3em;
              margin: 0.2em;
              border-radius: 0.5em;
         }
         /* gunakan class .invisible pada <button> buat sembunyikan */
-    button.invisible {
+    .invisible {
         visibility: hidden;
       }
 
@@ -23,23 +23,27 @@
     <div id="outputSeat" class="seat"></div>
 
     <script>
-        // objek element outputSeat  
-        const outputSeat = document.getElementById('outputSeat');
+        const outputSeat = document.getElementById("outputSeat");
+        const columsNameChar = "_ABCDEFG";
 
-        // mapping karakter untuk nama kolom , di isi di awal karena perulangan sampai 1 bukan sampai 0
-        var char = "_ABCDFG";
+        // pengulangan baris 
+        for(let kolom = 7; kolom >= 1; kolom--){
+            // pengulangan kolom
+            for(let baris = 12; baris >=1 ; baris--){
+               
+                let seatTohide
+                if(((baris == 6 || baris == 5) && kolom !=1 || (baris == 1 && kolom >4))){
+                    outputSeat.innerHTML += `<button disabled class="invisible">X</button>`
 
-        //nested loop untuk menampilkan layout kursi
-        // charAt untuk mengembalikan nilai dari index tertentu
-        for(let kolom = 7; kolom >=1; kolom--){
-            for(let baris = 12; baris>=1; baris--){
-                outputSeat.innerHTML += `
-                <button>${char.charAt(kolom)}${baris} </button>"
-                `
+                }else{
+                    // tampilkan kursi
+                    const columName = columsNameChar.charAt(kolom);
+                    outputSeat.innerHTML += `<button>${columName} ${baris} </button>`
+                }
+
             }
             outputSeat.innerHTML += "<br>";
         }
-
     </script>
 </body>
 </html>
