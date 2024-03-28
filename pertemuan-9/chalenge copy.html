@@ -55,7 +55,8 @@
             //variable nyimpan kursi
             let seatName = event.target.textContent;
             if(selectedSeat.includes(seatName)){
-
+                // melakuan filter jika dia batal
+                selectedSeat = selectedSeat.filter((seat)=>seat !== seatName);
             }else{
                 // let seatSelected = event.target.textContent;
                 // jika di klik akan menyimpan data nya
