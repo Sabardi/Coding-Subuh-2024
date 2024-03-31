@@ -75,7 +75,26 @@
 
             showTask();
         }
-        
+
+        // mengambil id nya 
+        function editTask(id){
+            // alert(id)
+
+            const oldtask = task[id];
+            const newTask = prompt("edit task", oldtask);
+
+            // melakukan pengecekan apakah di edit atau di cancel
+            if(newTask){
+                task[id] = newTask;
+                showTask();
+            }
+
+        }
+
+        function deletTask(){
+
+        }
+
     </script>
 
 </body>
