@@ -18,7 +18,20 @@
         ];
 
         const tags = ["coding", "programing", "javascript"];
+        
+        // menambahkan data array ke artikel 
+        artikel[4] = "code editor menggunkana visual stdufio code";
+
         console.log(artikel[4]);
+        
+        // menampilkan data aray dengan perulangan 
+        artikel.forEach(artikel => {
+            document.write(`<h1>${artikel} </h1>`);
+            for(tag of tags){
+                document.write(`<i>${tag}</i>`);
+            }
+        });
+        
         // produk.includes("😍")
         document.write(artikel.includes(" "))
         for(p of artikel){
