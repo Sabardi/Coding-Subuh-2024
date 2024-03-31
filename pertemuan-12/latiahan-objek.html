@@ -15,7 +15,7 @@
             name : "realme",
             wifiOn : "false",
             cellulerDataOn : false,
-            batray : 60,
+            batray : 50,
             // ini adalah properti
             toggleWifi : function(){
                 this.wifiOn = !this.wifiOn;
@@ -40,9 +40,50 @@
         phone.name = "redmi_not11";
 
         // menyelakan wifi dengan togle dari objek phon 
-        phone.toggleWifi(){
-            console.log;
+        phone.toggleWifi();
+
+
+        // fungsi untuk menampilkan phone 
+        showPhon();
+        // mengekstrak datanya 
+        function showPhon(){
+            // menggunakan desctructuring objek
+            let {name, wifiOn, cellulerDataOn, batray} = phone;
+
+            const displayTemplate = 
+            `<h1>${name}</>
+            <p><progress min="0" max="100" value="${batray}"></progress>${batray} </p>
+            <p>Wifi: ${wifiOn ? "on" : "off"}</p>
+            <p>Data: ${cellulerDataOn ? "on" : "off"}</p>
+            <hr>
+            <button onclick="togleWifi()">Toglewifi</button>
+            <button onclick="togleData()">toglrdata</button>
+            <button onclick="togleCharging()">charging</button>
+        </body>
+            `;
+
+            // menampilkan nya
+            document.getElementById("app").innerHTML = displayTemplate;
+        }
+
+        // fungsi untuk togle wifi
+        function togleWifi(){
+            phone.toggleWifi();
+            showPhon();
+        }
+
+        // fungsi untuk togle data
+        function togleData(){
+            phone.toggleCellulerData();
+            showPhon();
+        }
+        // fungsi untuk togle charging
+        function togleCharging(){
+            phone.charging();
+            showPhon();
         }
     </script>
+
+
 </body>
 </html>
