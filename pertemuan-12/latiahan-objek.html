@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Objek</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        // membuat objek phonen
+        var phone = {
+            name : "realme",
+            wifiOn : "false",
+            cellulerDataOn : false,
+            batray : 60,
+            // ini adalah properti
+            toggleWifi : function(){
+                this.wifiOn = !this.wifiOn;
+            },
+
+            toggleCellulerData : function(){
+                this.cellulerDataOn = !this.cellulerDataOn;
+            },
+
+            charging: function() {
+                if(this.batray>= 100){
+                    alert(`${this.batray}% fullycharge`);
+                    return;
+                }
+
+                 // ini akan menambah sampai 100
+                this.batray++;
+            }
+        }
+
+        // mengubah nama phon
+        phone.name = "redmi_not11";
+
+        // menyelakan wifi dengan togle dari objek phon 
+        phone.toggleWifi(){
+            console.log;
+        }
+    </script>
+</body>
+</html>
