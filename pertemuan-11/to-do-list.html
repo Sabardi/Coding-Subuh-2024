@@ -32,7 +32,16 @@
                 const ul = document.createElement("ul");
                 for(let id = 0; id<task.length; id++){
                     const li = document.createElement("li");
-                    li.textContent = task[id];
+
+                    // membuat tombol untuk edit dan hapus berdasarkan id nya 
+                    const btnEditDelet = 
+                    `
+                    <button onclick="editTask(${id})"> Edit</button>
+                    <button onclick="deletTask(${id})"> Dellet</button>
+                    `
+                    //mengganti textconten menjadi innerhtml
+                    // li.textContent = task[id];
+                    li.innerHTML = `${task[id]} - ${btnEditDelet}`;
                     // untuk menambhakn ul dan li
                     ul.appendChild(li);
                 }
@@ -65,8 +74,8 @@
             task = [];
 
             showTask();
-
         }
+        
     </script>
 
 </body>
