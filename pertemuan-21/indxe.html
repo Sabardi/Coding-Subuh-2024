@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan ajak</title>
+</head>
+<body>
+    <nav>
+        <span>Hello <b id="user">user</b> Check your </span>
+        <a href="wishlist.html">wishlist (<span id="wishlist-count">0</span>)</a>
+    </nav>
+
+    <header>
+        <h1>Availble Products</h1>
+    </header>
+
+    <div id="product-lits">
+        <progress></progress>
+    </div>
+
+    <script>
+        function loadProduct(){
+            const URL = "https://fakestoreapi.com/products";
+            const xhr = new XMLHttpRequest();
+
+            // mendeteksi event load ( request sukses dan selesai)
+            xhr.addEventListener("load", function () {  
+                //ubah json  ke object javascript
+                const products = JSON.parse(xhr.responseText);
+
+                console.log(products);
+                // show produk ke html
+                showProducts(products);
+
+            })
+            
+        }
+    </script>
+</body>
+</html>
