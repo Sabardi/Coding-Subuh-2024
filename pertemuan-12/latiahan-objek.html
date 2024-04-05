@@ -10,6 +10,8 @@
 
 
     <script>
+        var chargingInterval; 
+
         // membuat objek phonen
         var phone = {
             name : "realme",
@@ -79,8 +81,10 @@
         }
         // fungsi untuk togle charging
         function togleCharging(){
-            phone.charging();
-            showPhon();
+            chargingInterval = setInterval(function(){
+                phone.charging();
+                showPhon();
+            }, 2000);
         }
     </script>
 
