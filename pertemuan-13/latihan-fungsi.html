@@ -44,6 +44,11 @@
             width: 100%;
             padding: 0.5em;
         }
+        .tweetCompose .counter{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         .tweet{
             margin-bottom: 1em;
@@ -64,7 +69,7 @@
 
         .tweet .message{
             padding-left: 4em;
-            
+
         }
     </style>
 </head>
@@ -84,8 +89,10 @@
         <div class="tweetCompose">
             <textarea name="" id="inputTweetMessage" cols="10" rows="30" placeholder="Whats happen"
             onkeyup="calculatCharCount(this)"></textarea>
-            <button onclick="postTweet()" id="btnPost">Post</button>
-            <span id="charCountRemaining"></span>
+            <div class="counter">
+                <button onclick="postTweet()" id="btnPost">Post</button>
+                <span id="charCountRemaining"></span>
+            </div>
         </div>
 
         <!-- element output -->
