@@ -60,8 +60,10 @@
 
         <!-- elemet input -->
         <div class="tweetCompose">
-            <textarea name="" id="inputTweetMessage" cols="10" rows="30" placeholder="Whats happen"></textarea>
+            <textarea name="" id="inputTweetMessage" cols="10" rows="30" placeholder="Whats happen"
+            onkeyup="calculatCharCount(this)"></textarea>
             <button onclick="postTweet()">Post</button>
+            <span id="charCountRemaining"></span>
         </div>
 
         <!-- element output -->
@@ -88,6 +90,14 @@
             document.getElementById("userName").textContent = user.name;
             document.getElementById("userAvatar").src = user.getAvatar();
         }
+
+        // membuat fungsi kalkulasi karacter nya
+        function calculatCharCount(textarea){
+            const MAX_CHAR_ALLOWED = 140;
+            const charRemaining = document.getElementById("charCountRemaining");
+            const remining = MAX_CHAR_ALLOWED - textarea.value.length;
+
+            charRemaining.textContent = remining;        }
 
         // membuat fungsi untuk posting
         function postTweet(){
