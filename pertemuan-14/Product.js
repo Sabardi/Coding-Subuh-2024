@@ -12,5 +12,5 @@ Product.prototype.getPriceIDR = function(){
         currency: 'IDR'
     });
 };
-const p1 = new Product(1,2,3)
-console.log(p1.getPriceIDR());
+// const p1 = new Product(1,2,3)
+// console.log(p1.getPriceIDR());
