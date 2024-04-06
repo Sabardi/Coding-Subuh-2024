@@ -109,8 +109,34 @@
 
             // tambahkan objek ke dalam array posts
             post.unshift(tweet)
+
+            // menampilkan tweet / postingan nya
+            showTweet();
         }
-        
+
+        // fungsi untuk menampilkan postingan        
+        function showTweet(){
+            post.forEach(tweet => {
+                // menampilkan data nya
+                const tweetaTemplate = `
+                <div class="tweet">
+                    <header>
+                        <img src="${tweet.author.getAvatar()}" alt="">
+                        ${tweet.author.name}
+                        (${tweet.author.username})
+                        &middot;
+                        ${tweet.date}
+                        <p class="message">
+                            ${tweet.pesan}
+                        </p>
+                    </header>
+                </div>
+                `;
+            document.getElementById("feed").innerHTML += tweetaTemplate;
+
+            });
+        }
+
         // event setelah dokument html di load
         document.addEventListener("DOMContentLoaded", function(){
             // panggil fugsi show user 
