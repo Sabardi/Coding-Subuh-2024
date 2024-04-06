@@ -68,5 +68,32 @@
         <h1>Feeds</h1>
         <div id="feed" class="feed"></div>
     </div>
+
+    <script>
+         // akan berisi objek dari tweet masege
+        var postt = [];
+        
+        // objek user yang sedang login
+        var user = {
+            name: "SABARDI",
+            username: "@Bardi",
+            getAvatar: function(){
+                return `https://ui-avatars.com/api/?background=random&name= ${this.name}`;
+            }
+        }
+
+        // menampilkan user 
+        function showUserProfile(){
+            // menampilkan user ke navbar 
+            document.getElementById("userName").textContent = user.name;
+            document.getElementById("userAvatar").src = user.getAvatar();
+        }
+
+        // event setelah dokument html di load
+        document.addEventListener("DOMContentLoaded", function(){
+            // panggil fugsi show user 
+            showUserProfile();
+        })
+    </script>
 </body>
 </html>
