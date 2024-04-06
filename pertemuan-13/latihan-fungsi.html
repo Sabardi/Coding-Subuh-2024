@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan Fungsi</title>
+    <style>
+        *{
+            box-sizing: 0;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .app{
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 auto;
+        }
+        .navbar{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em;
+            background-color: lightblue;
+        }
+
+        .profile{
+            display: inline-flex;
+            align-items: center;
+            gap: 1em;
+
+        }
+
+        .profile img{
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+
+        }
+
+        .tweetCompose textarea{
+            width: 100%;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="app">
+
+        <nav class="navbar">
+            <a href="#">App Logo</a>
+            <div class="profile">
+                <span id="userName">User Name</span>
+                <img src="https://ui-avatars.com/api/?background=random" alt="" id="userAvatar">
+            </div>
+        </nav>
+
+        <!-- elemet input -->
+        <div class="tweetCompose">
+            <textarea name="" id="inputTweetMessage" cols="10" rows="30" placeholder="Whats happen"></textarea>
+            <button onclick="postTweet()">Post</button>
+        </div>
+
+        <!-- element output -->
+        <h1>Feeds</h1>
+        <div id="feed" class="feed"></div>
+    </div>
+</body>
+</html>
