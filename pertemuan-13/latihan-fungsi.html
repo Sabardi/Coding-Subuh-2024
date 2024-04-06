@@ -71,7 +71,7 @@
 
     <script>
          // akan berisi objek dari tweet masege
-        var postt = [];
+        var post = [];
         
         // objek user yang sedang login
         var user = {
@@ -89,6 +89,28 @@
             document.getElementById("userAvatar").src = user.getAvatar();
         }
 
+        // membuat fungsi untuk posting
+        function postTweet(){
+            // mengambil iputan 
+            const pesanInput = document.getElementById("inputTweetMessage").value;
+
+            // melakukan pengecekan apaka yg di inputkan kosong / tidak 
+            if(pesanInput.length <= 0 && pesanInput === ""){
+                alert("pesan tidak boleh kosong")
+                return
+            }
+
+            // membuat objek menyimpan tweet
+            const tweet = {
+                pesan: pesanInput,
+                author: {...user },
+                date: new Date()
+            };
+
+            // tambahkan objek ke dalam array posts
+            post.unshift(tweet)
+        }
+        
         // event setelah dokument html di load
         document.addEventListener("DOMContentLoaded", function(){
             // panggil fugsi show user 
