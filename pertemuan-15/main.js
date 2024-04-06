@@ -21,7 +21,7 @@ function showAllProduct(){
     const productList = document.querySelector("#product-list");
 
     let index = 0;
-    for(roduct of products){
+    for(product of product){
         productList.innerHTML = 
         `
         <div class="product">
@@ -61,7 +61,18 @@ function showProductInCart(){
     totalPriceInCart.textContent = cart.getTotalPriceIDR();
 }
 
+// menampilkan jumlah item pada keranjang/cart
+function updateCarTCountDisplay(){
+    document.querySelector("#cartCount").textContent = cart.Count();
+}
+
+// tampilkan jumlah saldoo saat ini
+function updateWalletCountDisplay(){
+    document.querySelector("#wallet-balance").textContent = wallet.getCurrentBalanceIDR();
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
    showAllProduct(); 
-
+   updateCarTCountDisplay();
+   updateWalletCountDisplay
 })
