@@ -4,11 +4,11 @@ class Cart{
         this.items = [];
     }
 
-    addItem(Product){
+    addItem(product){
         // melakukan pengecekan apakah item berasal dari produk
         // jk dari kelas product maka tambahkan
-        if(Product instanceof Product){
-            this.items.push(Product);
+        if(product instanceof Product){
+            this.items.push(product);
         }else{
             // jika tidak error tidak bisa menambahkan objek selain produk
             console.error("tidak bisa menambhakan object selain product ke kerjanjangan");
@@ -20,8 +20,12 @@ class Cart{
         this.items.splice(index,1);
     }
 
+    clear(){
+        this.items = [];
+    }
+
     Count(){
-        return this.items = [];  
+        return this.items.length;  
     }
 
     getTotalPrice(){
