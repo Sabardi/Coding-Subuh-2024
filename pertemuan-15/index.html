@@ -30,6 +30,16 @@
             <span id="wallet-balance">0</span>
         </div>
     </nav>
+    <div id="product-list">
+        <dialog id="cart-dialog">
+            <!-- element untuk menampilkan produk di keranjang -->
+            <div id="product-list-in-cart"></div>
+
+            <h3>Total: <span id="total-product-price-in-cart"></span></h3>
+            <button onclick="closerCart()">Tutup</button>
+            <button onclick="handleCheckout()">Bayar</button>
+        </dialog>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
