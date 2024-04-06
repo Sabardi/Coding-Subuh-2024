@@ -14,7 +14,44 @@ var product = [
 
 // fungsi untuk handle event
 
+function openCart(){
+    document/querySelector("#cart-dialog").showModal();
+    showProductInCart();
+}
 
+function closeCart(){
+    document.querySelector("#cart-dialog").closest();
+}
+
+function handleAddToCarat(index){
+    cart.addItem(product[index]);
+    updateCarTCountDisplay();
+}
+
+function handleRemoveFromCart(index){
+    cart.removeItem(index);
+    showProductInCart();
+    updateCarTCountDisplay();
+}
+
+function topupWallet(){
+    const topupAmount = Number(prompt("jumlah top Up"));
+
+    if(isNaN(topupAmount) || topupAmount < 0){
+        alert("jumlah top up salah")
+        return;
+    }
+
+    wallet.topUp(topupAmount);
+    updateWalletBalanceDisplay()
+}
+
+function handleChekOut(){
+    const totalPay = cart.getTotalPrice();
+
+    // bayar dgn wallet
+    wallet.pay(totalPay);
+}
 // fungsi untuk menampilkan ke elemet html
 
 function showAllProduct(){
@@ -29,6 +66,7 @@ function showAllProduct(){
         <h3>${product.name}</h3>
         <p>${product.getPriceIDR()}</p>
         <button onclick="handleAddToCarat(${index})">Add to Cart</button>
+        <button onclick="handleCheckOut()">Check Out</button>
         </div>
         `
         index++;
@@ -67,12 +105,12 @@ function updateCarTCountDisplay(){
 }
 
 // tampilkan jumlah saldoo saat ini
-function updateWalletCountDisplay(){
+function updateWalletBalanceDisplay(){
     document.querySelector("#wallet-balance").textContent = wallet.getCurrentBalanceIDR();
 }
 
 document.addEventListener("DOMContentLoaded", () =>{
    showAllProduct(); 
    updateCarTCountDisplay();
-   updateWalletCountDisplay
+   updateWalletBalanceDisplay
 })
