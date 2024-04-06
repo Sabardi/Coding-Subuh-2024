@@ -44,6 +44,28 @@
             width: 100%;
             padding: 0.5em;
         }
+
+        .tweet{
+            margin-bottom: 1em;
+            padding: 0.5em;
+            border-top: 1px solid silver;
+        }
+        .tweet header{
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            margin-bottom: 0.5em;
+        }
+        .tweet header img{
+            border-radius: 50%;
+            width: 3em;
+            height: 3em;
+        }
+
+        .tweet .message{
+            padding-left: 4em;
+            
+        }
     </style>
 </head>
 <body>
@@ -151,10 +173,10 @@
                         (${tweet.author.username})
                         &middot;
                         ${tweet.date}
-                        <p class="message">
-                            ${tweet.pesan}
-                        </p>
                     </header>
+                    <p class="message">
+                        ${tweet.pesan}
+                    </p>
                 </div>
                 `;
             document.getElementById("feed").innerHTML += tweetaTemplate;
