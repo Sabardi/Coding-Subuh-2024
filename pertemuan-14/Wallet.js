@@ -26,13 +26,19 @@ class Wallet{
        const pin = Number(prompt("inputkan pin"));
        const isValidAmount =isNaN(amount) && amount > this.balance && amount < 0;
        const isPinCorrect = pin === 123456;
+
+       //    jika pin salah
+       if(!isPinCorrect){
+           alert("pin salah")
+           return;
+       }
        
        // jika invalid amount 
        if(!isValidAmount){
         alert("saldo tidak cukup, silahkan topup Dulu!")
         return
        }
-
+       
        // jika valid amount dan pin 
        if(isValidAmount && isPinCorrect){
         this.balance -= amount;
