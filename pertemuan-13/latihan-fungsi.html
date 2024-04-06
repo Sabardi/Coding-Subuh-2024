@@ -62,7 +62,7 @@
         <div class="tweetCompose">
             <textarea name="" id="inputTweetMessage" cols="10" rows="30" placeholder="Whats happen"
             onkeyup="calculatCharCount(this)"></textarea>
-            <button onclick="postTweet()">Post</button>
+            <button onclick="postTweet()" id="btnPost">Post</button>
             <span id="charCountRemaining"></span>
         </div>
 
@@ -97,8 +97,23 @@
             const charRemaining = document.getElementById("charCountRemaining");
             const remining = MAX_CHAR_ALLOWED - textarea.value.length;
 
-            charRemaining.textContent = remining;        }
+            charRemaining.textContent = remining;
 
+            // melakukan pengecekan jika dia lebih dari 140 kata 
+            if(remining < 10){
+                charRemaining.style.color = "tomato";
+            }else if(remining < 30){
+                charRemaining.style.color = "orange";
+            }else{
+                charRemaining.style.color = "black";
+            }
+            
+            const disabled = remining < 0 ? true : false;
+            document.getElementById("btnPost").disabled = disabled;
+
+        }
+
+            
         // membuat fungsi untuk posting
         function postTweet(){
             // mengambil iputan 
