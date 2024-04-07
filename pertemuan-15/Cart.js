@@ -1,5 +1,4 @@
-class Cart{
-    
+class Cart{    
     constructor(){
         // tempat menyimpan kumpulan data
         this.items = [];
@@ -40,5 +39,5 @@ class Cart{
             style: "currency",
             currency: "IDR",
         })
-    }
+    }     
 }
