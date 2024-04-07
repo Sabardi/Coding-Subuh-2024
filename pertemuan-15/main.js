@@ -1,7 +1,7 @@
 // simulasi menambahkan kerjanjanh
 const cart = new Cart();
 // membuat objek wallet
-const wallet = new Wallet(10000);
+const wallet = new Wallet(10000000);
 
 // coba menambhakn product
 const iphone = new Product("iphone 15 promax", 33000000, "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg");
@@ -20,10 +20,10 @@ function openCart(){
 }
 
 function closeCart(){
-    document.querySelector("#cart-dialog").closest();
+    document.querySelector("#cart-dialog").close();
 }
 
-function handleAddToCarat(index){
+function handleAddToCart(index){
     cart.addItem(product[index]);
     updateCarTCountDisplay();
 }
@@ -55,17 +55,17 @@ function handleChekOut(){
 // fungsi untuk menampilkan ke elemet html
 
 function showAllProduct(){
-    const productList = document.querySelector("#product-list");
+    const productListElement = document.querySelector("#product-list");
 
     let index = 0;
     for(product of product){
-        productList.innerHTML = 
+        productListElement.innerHTML += 
         `
         <div class="product">
         <img src="${product.image}" alt="">
         <h3>${product.name}</h3>
         <p>${product.getPriceIDR()}</p>
-        <button onclick="handleAddToCarat(${index})">Add to Cart</button>
+        <button onclick="handleAddToCart(${index})">Add to Cart</button>
         <button onclick="handleCheckOut()">Check Out</button>
         </div>
         `
