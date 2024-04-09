@@ -61,6 +61,8 @@
               <h3>${product.title}</h3>
               <p class="price">${formatUSD(product.price)}</p>
               <p>${product.description}</p>
+              <button onclick="handleTogleWhislist(event)">Add Whislist</button>
+
             </div>
           </div>
         `;
@@ -76,11 +78,28 @@
       })
     }
 
+    function setUserCookie(){
+      const isCookieEmpty = document.cookie =="";
+      if(isCookieEmpty){
+        // input nama user 
+        const name = prompt("inputkan nama");
+        
+        // simpan nama ke dalam cookie  
+        document.cookie = `name=${name};path=/`;
+
+        console.log("cookie tersimpan", document.cookie);
+      }
+    }
+
+    function showUserFromCookie(){
+      const name = document.cookie.split("=")[1];
+      console.log(name);
+      document.querySelector("#user-name").textContent = name;
+    }
     document.addEventListener("DOMContentLoaded", () => {
+      setUserCookie();
       loadProducts();
     })
   </script>
-
 </body>
-
 </html>
