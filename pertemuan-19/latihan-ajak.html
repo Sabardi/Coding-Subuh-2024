@@ -10,7 +10,21 @@
     <button onclick="loadheader()">load Header</button>
 
     <script>
-        
+        function loadheader(){
+            // membuat ajak xhr
+            const xhr = new XMLHttpRequest();
+
+            // mendeteksi event load (request sukses dan selesai)
+            xhr.addEventListener("load", function(){
+                console.log(xhr);
+                // melakukan seleksi 
+                document.querySelector("#header").innerHTML = xhr.responseText;
+            });
+
+            // membuka koneksi AJAX
+            xhr.open("GET", "header-conten.html", true);
+            xhr.send();
+        }
     </script>
 </body>
 </html>
