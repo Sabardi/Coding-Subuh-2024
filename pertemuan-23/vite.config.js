@@ -8,7 +8,15 @@ export default {
     },
   },
   build: {
-    outDir: '../dist'
+    rollupOptions: {
+        input: {
+          index: resolve(__dirname, "src/index.html"),
+          register: resolve(__dirname, "src/register.html"),
+        },
+      },
+    //   bisa tidak ikut
+    // outDir: '../dist'
+    
   },
   server: {
     port: 8080
