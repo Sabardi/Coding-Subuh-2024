@@ -1,4 +1,8 @@
-import { resolve } from 'path'
+import { resolve } from 'path';
+import { glob } from "glob"; 
+
+
+// npm install glob sebelum di import
 
 export default {
   root: resolve(__dirname, 'src'),
@@ -9,13 +13,9 @@ export default {
   },
   build: {
     rollupOptions: {
-        input: {
-          index: resolve(__dirname, "src/index.html"),
-          register: resolve(__dirname, "src/register.html"),
-        },
+        input: glob.sync(resolve(__dirname, "src","*.html")),
       },
-    //   bisa tidak ikut
-    // outDir: '../dist'
+    outDir: '../dist'
     
   },
   server: {
