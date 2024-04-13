@@ -3,6 +3,7 @@ import '../scss/styles.scss'
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
+import { API } from './API';
 
 const formRegister = document.querySelector("#formRegister");
 const inputAcceptTerm = document.querySelector("#inputAcceptTerms");
@@ -55,23 +56,18 @@ async function handleSubmit(event){
   console.log(newUser);
 
   // URL Backend untuk register
-  const URL = "https://33zfhf-3000.csb.app/register";
 
   // Disble button submit sebelum melakukan request
   btnSubmit.disabled = true;
   btnSubmit.textContent = "Mendaftar...";
 
   // kirim data ke backend URL
-  const response = await fetch(URL, {
-    method: "POST",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newUser)
-  });
+  const response = await API.signup(newUser)
 
   if(response.ok){
+    const data = await response.json();
+    // console.log(data);
+
     btnSubmit.disabled = false;
     btnSubmit.textContent = "Berhasil!";
     btnSubmit.classList.replace("btn-primary", "btn-success");
