@@ -4,6 +4,7 @@ import '../scss/styles.scss'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { API } from './API';
+import { confetti } from '@tsparticles/confetti';
 
 const formRegister = document.querySelector("#formRegister");
 const inputAcceptTerm = document.querySelector("#inputAcceptTerms");
